@@ -2,11 +2,14 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Text, Button } from 'react-native-elements'
 
-const EmailSignInScreen = () => {
+const EmailSignInScreen = ({ navigation }) => {
     return (
         <View>
             <Text>Email Sign In Screen</Text>
-            <Button>Continue</Button>
+            <Button 
+                title='Continue'
+                onPress={() => navigation.navigate('PasswordSignin') }
+            />
         </View>
     )
 }

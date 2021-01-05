@@ -2,11 +2,14 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Text, Button } from 'react-native-elements'
 
-const InterestedInSignUpScreen = () => {
+const InterestedInSignUpScreen = ({ navigation }) => {
     return (
         <View>
             <Text>Interested In Sign Up Screen</Text>
-            <Button>Continue</Button>
+            <Button 
+                title='Continue'
+                onPress={()=> navigation.navigate('tabFlow')}    
+            />
         </View>
     )
 }
