@@ -3,7 +3,6 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs'
 import AccountScreen from './src/screens/AccountScreen'
-import MatchListScreen from './src/screens/MatchListScreen'
 import MessageScreen from './src/screens/MessageScreen'
 import PotentialMatchScreen from './src/screens/PotentialMatchScreen'
 import BioSignupScreen from './src/signin-screens/BioSignupScreen'
@@ -14,6 +13,7 @@ import InterestedInSignupScreen from './src/signin-screens/InterestedInSignupScr
 import LoadScreen from './src/signin-screens/LoadScreen'
 import PasswordSigninScreen from './src/signin-screens/PasswordSigninScreen'
 import PasswordSignupScreen from './src/signin-screens/PasswordSignupScreen'
+import PreferencesSignupScreen from './src/signin-screens/PreferencesSignupScreen'
 import SigninScreen from './src/signin-screens/SigninScreen'
 
 const switchNavigator = createSwitchNavigator  ({
@@ -27,12 +27,12 @@ const switchNavigator = createSwitchNavigator  ({
     EmailSignup: EmailSignupScreen, 
     PasswordSignup: PasswordSignupScreen, 
     BioSignup: BioSignupScreen, 
-    InterestedInSignup: InterestedInSignupScreen
+    InterestedInSignup: InterestedInSignupScreen, 
+    PreferencesSignup: PreferencesSignupScreen
   }), 
   tabFlow: createMaterialTopTabNavigator({
     PotentialMatch: PotentialMatchScreen,
     Account: AccountScreen,
-    MatchList: MatchListScreen, 
     Message: MessageScreen
   })
 
