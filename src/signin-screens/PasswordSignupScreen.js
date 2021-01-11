@@ -8,14 +8,14 @@ const PasswordSignUpScreen = ({ navigation }) => {
             <Text>Password Sign Up Screen</Text>
             <Button 
                 title='Continue'
-                onPress={ () => navigation.navigate('BioSignup')}
+                onPress={() => navigation.navigate('BioSignup')}
             />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-
+    
 })
 
 export default PasswordSignUpScreen
