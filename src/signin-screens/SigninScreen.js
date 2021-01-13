@@ -1,16 +1,17 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Text, Button } from 'react-native-elements'
+import { Text } from 'react-native-elements'
+import AppButton from '../components/AppButton'
 
 const SigninScreen = ({ navigation }) => {
     return (
         <View>
             <Text>Signup Screen</Text>
-            <Button 
+            <AppButton 
                 title='Sign in with Google'
                 onPress={() => navigation.navigate('GoogleSignin')}
             />
-            <Button 
+            <AppButton 
                 title='Sign in with email'
                 onPress={() => navigation.navigate('EmailSignin')}
             />

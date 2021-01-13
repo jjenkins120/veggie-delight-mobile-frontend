@@ -1,16 +1,17 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Text, Button } from 'react-native-elements'
+import { Text } from 'react-native-elements'
+import AppButton from '../components/AppButton'
 
 
 const LoadScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text>Load Screen</Text>
-            <Button 
+            <AppButton 
                 title='Create Account'
                 onPress={ () => navigation.navigate('EmailSignup')}/>
-            <Button 
+            <AppButton 
                 title='Sign In'
                 onPress={() => navigation.navigate('Signin') } 
             />
@@ -23,6 +24,7 @@ LoadScreen.navigationOptions = () => {
       headerShown: false,
     };
   };
+
 
 const styles = StyleSheet.create({
     container: {

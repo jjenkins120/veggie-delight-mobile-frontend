@@ -1,15 +1,15 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-elements'
-import MatchList from '../components/MatchList'
-import Messages from '../components/Messages'
+import MatchListContainer from '../containers/MatchListContainer'
+import MessagesContainer from '../containers/MessagesContainer'
 
 const MessageScreen = () => {
     return (
         <View>
             <Text>Message Screen</Text>
-            <MatchList/>
-            <Messages/>
+            <MatchListContainer/>
+            <MessagesContainer/>
         </View>
     )
 }

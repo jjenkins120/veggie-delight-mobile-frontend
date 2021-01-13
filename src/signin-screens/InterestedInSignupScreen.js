@@ -1,12 +1,13 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Text, Button } from 'react-native-elements'
+import { Text } from 'react-native-elements'
+import AppButton from '../components/AppButton'
 
 const InterestedInSignUpScreen = ({ navigation }) => {
     return (
         <View>
             <Text>Interested In Sign Up Screen</Text>
-            <Button 
+            <AppButton 
                 title='Continue'
                 onPress={()=> navigation.navigate('PreferencesSignup')}    
             />

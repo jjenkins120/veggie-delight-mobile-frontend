@@ -1,12 +1,13 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Text, Button } from 'react-native-elements'
+import { Text } from 'react-native-elements'
+import AppButton from '../components/AppButton'
 
 const AccountScreen = ({ navigation }) => {
     return (
         <View>
             <Text>Account Screen</Text>
-            <Button
+            <AppButton
                 title='Sign out'
                 onPress={()=> navigation.navigate('Load')}
             />

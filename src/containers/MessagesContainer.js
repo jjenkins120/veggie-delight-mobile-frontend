@@ -2,9 +2,9 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-elements'
 
-const Messages = () => {
+const MessagesContainer = () => {
     return (
-            <Text>Messages</Text>
+            <Text>Messages Container</Text>
     )
 }
 
@@ -12,4 +12,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Messages
+export default MessagesContainer
