@@ -6,7 +6,7 @@ import AppButton from '../components/AppButton'
 const SigninScreen = ({ navigation }) => {
     return (
         <View>
-            <Text>Signup Screen</Text>
+            <Text>Signin Screen</Text>
             <AppButton 
                 title='Sign in with Google'
                 onPress={() => navigation.navigate('GoogleSignin')}

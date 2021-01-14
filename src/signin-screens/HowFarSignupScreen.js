@@ -1,18 +1,18 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { Text } from 'react-native-elements'
 import AppButton from '../components/AppButton'
 import Form from '../components/Form'
 import FormView from '../components/FormView'
 
-const PasswordSignInScreen = ({ navigation }) => {
+const HowFarSignUpScreen = ({ navigation }) => {
     return (
         <FormView>
-            <Text>Password Sign In Screen</Text>
-            <Form placeholder='Password'/>
+            <Text>How Far Sign up</Text>
+            <Form placeholder='How far would you travel?'/>
             <AppButton 
                 title='Continue'
-                onPress={()=> navigation.navigate('tabFlow') }
+                onPress={()=> navigation.navigate('InterestedInSignup')}    
             />
         </FormView>
     )
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default PasswordSignInScreen
+export default HowFarSignUpScreen
