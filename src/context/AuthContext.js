@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import createDataContext from './createDataContext'
-import trackerApi from '../api/tracker'
+import veggieBackendApi from '../api/veggieBackendApi'
 import { navigate } from '../navigationRef'
 
 const authReducer = (state, action) => {
@@ -22,9 +22,9 @@ const tryLocalSignin = dispatch => async () => {
     const token = await AsyncStorage.getItem('token')
     if (token){
         dispatch({ type: 'signin', payload: token })
-        navigate('TrackList')
+        navigate('PotentialMatch')
     } else {
-        navigate('Signup')
+        navigate('Load')
     }
 }
 //this function will check to see if the user has a token when revisiting the page -this way, if they've signed in they don't need to re-sign in
@@ -38,7 +38,7 @@ const signup = dispatch => async ({ email, password }) => {
     // because this function contains only one item to return, we can use implicit return (removing the return statement and putting the beginning of the function call on the first line). This is best practice for refactoring.
     
     try {
-        const response = await trackerApi.post('/signup', { email, password })
+        const response = await veggieBackendApi.post('/signup', { email, password })
         await AsyncStorage.setItem('token', response.data.token)
         //this puts the token 'in storage' for us, allowing us to use and persist this information on reload
         //response.data is an object that has a token property
@@ -47,7 +47,7 @@ const signup = dispatch => async ({ email, password }) => {
         
         dispatch({ type: 'signin', payload: response.data.token })
 
-        navigate('TrackList')
+        navigate('PotentialMatch')
         //this is a function that we imported from navigationRef. The logic in that file's functions essentially allow us to access react navigation from within our components and navigate among screens quickly
 
     } catch (err) {
@@ -64,10 +64,10 @@ const signup = dispatch => async ({ email, password }) => {
 
 const signin = dispatch => async ({ email, password }) => {
     try {
-        const response = await trackerApi.post('/signin', { email, password })
+        const response = await veggieBackendApi.post('/signin', { email, password })
         await AsyncStorage.setItem('token', response.data.token)
         dispatch({ type: 'signin', payload: response.data.token})
-        navigate('TrackList')
+        navigate('PotentialMatch')
 
     } catch (err) {
         dispatch({
@@ -82,7 +82,7 @@ const signin = dispatch => async ({ email, password }) => {
 const signout = dispatch => async () => {
     await AsyncStorage.removeItem('token')
     dispatch({ type: 'signout'})
-    navigate('loginFlow')
+    navigate('Load')
 }
 //this allows us to get rid of the token, which essentially forces the user back to the signin screen and effectively signing them out
 
