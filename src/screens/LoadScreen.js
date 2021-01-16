@@ -9,7 +9,7 @@ const LoadScreen = ({ navigation }) => {
             <Text>Load Screen</Text>
             <AppButton 
                 title='Sign In'
-                onPress={() => navigation.navigate('Signin') } 
+                onPress={() => navigation.navigate('EmailSignin') } 
             />
             <AppButton 
                 title='Create Account'
