@@ -38,7 +38,7 @@ const signup = dispatch => async ({ email, password }) => {
     // because this function contains only one item to return, we can use implicit return (removing the return statement and putting the beginning of the function call on the first line). This is best practice for refactoring.
     
     try {
-        const response = await veggieBackendApi.post('/signup', { email, password })
+        const response = await veggieBackendApi.post('/api/v1/auth', { email, password })
         await AsyncStorage.setItem('token', response.data.token)
         //this puts the token 'in storage' for us, allowing us to use and persist this information on reload
         //response.data is an object that has a token property
@@ -64,7 +64,7 @@ const signup = dispatch => async ({ email, password }) => {
 
 const signin = dispatch => async ({ email, password }) => {
     try {
-        const response = await veggieBackendApi.post('/signin', { email, password })
+        const response = await veggieBackendApi.post('/api/v1/auth', { email, password })
         await AsyncStorage.setItem('token', response.data.token)
         dispatch({ type: 'signin', payload: response.data.token})
         navigate('PotentialMatch')

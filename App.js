@@ -16,11 +16,14 @@ import PasswordSigninScreen from './src/signin-screens/PasswordSigninScreen'
 import PasswordSignupScreen from './src/signin-screens/PasswordSignupScreen'
 import PreferencesSignupScreen from './src/signin-screens/PreferencesSignupScreen'
 import ProfileImageSignupScreen from './src/signin-screens/ProfileImageSignupScreen'
+import ResolveAuthScreen from './src/signin-screens/ResolveAuthScreen'
 import SigninScreen from './src/signin-screens/SigninScreen'
 import VeggieTypeSignupScreen from './src/signin-screens/VeggieTypeSignupScreen'
+import { Provider as AuthProvider } from './src/context/AuthContext'
 
 const switchNavigator = createSwitchNavigator({
-
+  // ResolveAuth: ResolveAuthScreen, 
+  //because resolveauth is listed at the top, it will run as the default route unless an initial default is specified
   loadFlow: createStackNavigator({
     Load: LoadScreen,
     Signin: SigninScreen,
@@ -49,6 +52,8 @@ const App = createAppContainer(switchNavigator)
 
 export default () => {
   return (
+    <AuthProvider>
       <App/>
+    </AuthProvider> 
   )
 }
