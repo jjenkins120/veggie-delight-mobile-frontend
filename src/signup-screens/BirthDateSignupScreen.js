@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native'
 import { Text } from 'react-native-elements'
 import Form from '../components/Form'
 import FormView from '../components/FormView'
-import { Context as UserContext} from '../context/UserContext'
+import { Context as AuthContext} from '../context/AuthContext'
 
 const BirthDateSignupScreen = () => {
-    const { addBirthDate } = useContext(UserContext)
+    const { addBirthDate } = useContext(AuthContext)
 
     return (
         <FormView>

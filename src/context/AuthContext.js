@@ -3,7 +3,7 @@ import createDataContext from './createDataContext'
 import veggieBackendApi from '../api/veggieBackendApi'
 import { navigate } from '../navigationRef'
 
-const userReducer = (state, action) => {
+const authReducer = (state, action) => {
     switch (action.type){
         case 'add_error':
             return {...state, errorMessage: action.payload}
@@ -176,7 +176,7 @@ const createUser = dispatch => input => {
 // //this allows us to get rid of the token, which essentially forces the user back to the signin screen and effectively signing them out
 
 export const { Provider, Context } = createDataContext(
-    userReducer, 
+    authReducer, 
     { 
         signinEmail,
         //signinPassword 
