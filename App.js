@@ -2,24 +2,26 @@ import React from 'react'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs'
+import { setNavigator } from './src/navigationRef'
 import AccountScreen from './src/screens/AccountScreen'
 import MessageScreen from './src/screens/MessageScreen'
 import PotentialMatchScreen from './src/screens/PotentialMatchScreen'
-import BioSignupScreen from './src/signup-screens/BioSignupScreen'
 import EmailSigninScreen from './src/signin-screens/EmailSigninScreen'
-import EmailSignupScreen from './src/signup-screens/EmailSignupScreen'
 import GoogleSigninScreen from './src/signin-screens/GoogleSigninScreen'
+import PasswordSigninScreen from './src/signin-screens/PasswordSigninScreen'
+import SigninScreen from './src/signin-screens/SigninScreen'
+import BioSignupScreen from './src/signup-screens/BioSignupScreen'
+import BirthDateSignupScreen from './src/signup-screens/BirthDateSignupScreen'
+import EmailSignupScreen from './src/signup-screens/EmailSignupScreen'
+import FirstNameSignupScreen from './src/signup-screens/FirstNameSignupScreen'
 import HowFarSignupScreen from './src/signup-screens/HowFarSignupScreen'
 import InterestedInSignupScreen from './src/signup-screens/InterestedInSignupScreen'
 import LoadScreen from './src/screens/LoadScreen'
-import PasswordSigninScreen from './src/signin-screens/PasswordSigninScreen'
 import PasswordSignupScreen from './src/signup-screens/PasswordSignupScreen'
-import PreferencesSignupScreen from './src/signup-screens/PreferencesSignupScreen'
-import ProfileImageSignupScreen from './src/signup-screens/ProfileImageSignupScreen'
+import ProfileImgUrlSignupScreen from './src/signup-screens/ProfileImgUrlSignupScreen'
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen'
-import SigninScreen from './src/signin-screens/SigninScreen'
 import VeggieTypeSignupScreen from './src/signup-screens/VeggieTypeSignupScreen'
-import { Provider as AuthProvider } from './src/context/AuthContext'
+import { Provider as UserProvider } from './src/context/UserContext'
 
 const switchNavigator = createSwitchNavigator({
   // ResolveAuth: ResolveAuthScreen, 
@@ -32,12 +34,13 @@ const switchNavigator = createSwitchNavigator({
     PasswordSignin: PasswordSigninScreen,
     EmailSignup: EmailSignupScreen, 
     PasswordSignup: PasswordSignupScreen, 
-    ProfileImageSignup: ProfileImageSignupScreen,
+    FirstNameSignup: FirstNameSignupScreen,
+    BirthDateSignup: BirthDateSignupScreen,
+    ProfileImgUrlSignup: ProfileImgUrlSignupScreen,
     VeggieTypeSignup: VeggieTypeSignupScreen, 
     BioSignup: BioSignupScreen,
     HowFarSignup: HowFarSignupScreen,
-    InterestedInSignup: InterestedInSignupScreen, 
-    PreferencesSignup: PreferencesSignupScreen
+    InterestedInSignup: InterestedInSignupScreen
   }), 
 
   tabFlow: createMaterialTopTabNavigator({
@@ -52,8 +55,8 @@ const App = createAppContainer(switchNavigator)
 
 export default () => {
   return (
-    <AuthProvider>
-      <App/>
-    </AuthProvider> 
+    <UserProvider>
+      <App ref={(navigator) => setNavigator(navigator)}/>
+    </UserProvider> 
   )
 }

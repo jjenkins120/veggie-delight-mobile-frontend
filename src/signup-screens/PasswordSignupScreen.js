@@ -1,19 +1,20 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import React, { useContext } from 'react'
+import { StyleSheet } from 'react-native'
 import { Text } from 'react-native-elements'
-import AppButton from '../components/AppButton'
 import Form from '../components/Form'
 import FormView from '../components/FormView'
+import { Context as UserContext } from '../context/UserContext'
 
-const PasswordSignUpScreen = ({ navigation }) => {
+const PasswordSignUpScreen = () => {
+    const { addPassword } = useContext(UserContext)
+
     return (
         <FormView>
             <Text>Password Sign Up Screen</Text>
-            <Form placeholder='Password'/>
-            <Form placeholder='Confirm Password'/>
-            <AppButton 
+            <Form 
+                placeholder='Password'
                 title='Continue'
-                onPress={() => navigation.navigate('ProfileImageSignup')}
+                onPress={addPassword}
             />
         </FormView>
     )

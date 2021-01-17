@@ -5,16 +5,16 @@ import Form from '../components/Form'
 import FormView from '../components/FormView'
 import { Context as UserContext} from '../context/UserContext'
 
-const EmailSignInScreen = () => {
-    const { signinEmail } = useContext(UserContext)
+const FirstNameSignupScreen = () => {
+    const { addFirstName } = useContext(UserContext)
 
     return (
         <FormView>
-            <Text>Email Sign In Screen</Text>
+            <Text>First Name Sign up Screen</Text>
             <Form 
-                placeholder='Email' 
+                placeholder='First Name' 
                 title='Continue' 
-                onPress={signinEmail}
+                onPress={addFirstName}
             />
         </FormView>
     )
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default EmailSignInScreen
+export default FirstNameSignupScreen

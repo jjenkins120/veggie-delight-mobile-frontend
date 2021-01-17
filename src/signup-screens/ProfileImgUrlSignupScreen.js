@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { StyleSheet } from 'react-native'
 import { Text } from 'react-native-elements'
-import AppButton from '../components/AppButton'
 import Form from '../components/Form'
 import FormView from '../components/FormView'
+import { Context as UserContext } from '../context/UserContext'
 
-const ProfileImageSignupScreen = ({ navigation }) => {
+const ProfileImgUrlSignupScreen = () => {
+    const { addProfileImgUrl } = useContext(UserContext)
+
     return (
         <FormView>
             <Text>Profile Img Sign up</Text>
-            <Form placeholder='Profile Img Url'/>
-            <AppButton 
+            <Form 
+                placeholder='Profile Img Url'
                 title='Continue'
-                onPress={()=> navigation.navigate('VeggieTypeSignup')}    
+                onPress={addProfileImgUrl}    
             />
         </FormView>
     )
@@ -22,4 +24,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default ProfileImageSignupScreen
+export default ProfileImgUrlSignupScreen
