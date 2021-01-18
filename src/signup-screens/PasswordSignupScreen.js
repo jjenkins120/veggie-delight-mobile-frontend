@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native'
 import { Text } from 'react-native-elements'
 import Form from '../components/Form'
 import FormView from '../components/FormView'
-import { Context as AuthContext } from '../context/AuthContext'
+import { Context as EntryContext } from '../context/EntryContext'
 
 const PasswordSignUpScreen = () => {
-    const { addPassword } = useContext(AuthContext)
+    const { addPassword } = useContext(EntryContext)
 
     return (
         <FormView>

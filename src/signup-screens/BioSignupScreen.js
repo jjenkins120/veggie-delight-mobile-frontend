@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native'
 import { Text } from 'react-native-elements'
 import Form from '../components/Form'
 import FormView from '../components/FormView'
-import { Context as AuthContext } from '../context/AuthContext'
+import { Context as EntryContext } from '../context/EntryContext'
 
 const BioSignUpScreen = () => {
-    const { addBio } = useContext(AuthContext)
+    const { addBio } = useContext(EntryContext)
 
     return (
         <FormView>

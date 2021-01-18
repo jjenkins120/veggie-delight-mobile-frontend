@@ -1,12 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { StyleSheet } from 'react-native'
 import { Text } from 'react-native-elements'
 import Form from '../components/Form'
 import FormView from '../components/FormView'
-import { Context as AuthContext } from '../context/AuthContext'
+import useSignupLogin from '../hooks/useSignupLogin'
 
 const InterestedInSignUpScreen = () => {
-    const { createUser } = useContext(AuthContext)
 
     return (
         <FormView>
@@ -14,7 +13,7 @@ const InterestedInSignUpScreen = () => {
             <Form 
                 placeholder='Interested In?'
                 title='Continue'
-                onPress={createUser}    
+                onPress={useSignupLogin}    
             />
         </FormView>
     )

@@ -1,12 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { StyleSheet } from 'react-native'
 import { Text } from 'react-native-elements'
 import Form from '../components/Form'
 import FormView from '../components/FormView'
-import { Context as AuthContext } from '../context/AuthContext'
+import useSigninLogin from '../hooks/useSigninLogin'
 
 const PasswordSignInScreen = () => {
-    const { login } = useContext(AuthContext)
 
     return (
         <FormView>
@@ -14,7 +13,7 @@ const PasswordSignInScreen = () => {
             <Form 
                 placeholder='Password'
                 title='Login'
-                onPress={login}
+                onPress={useSigninLogin}
             />
         </FormView>
     )

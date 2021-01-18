@@ -21,7 +21,9 @@ import PasswordSignupScreen from './src/signup-screens/PasswordSignupScreen'
 import ProfileImgUrlSignupScreen from './src/signup-screens/ProfileImgUrlSignupScreen'
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen'
 import VeggieTypeSignupScreen from './src/signup-screens/VeggieTypeSignupScreen'
+import { Provider as EntryProvider } from './src/context/EntryContext'
 import { Provider as AuthProvider } from './src/context/AuthContext'
+import { Provider as UserProvider } from './src/context/UserContext'
 
 const switchNavigator = createSwitchNavigator({
   // ResolveAuth: ResolveAuthScreen, 
@@ -56,7 +58,11 @@ const App = createAppContainer(switchNavigator)
 export default () => {
   return (
     <AuthProvider>
-      <App ref={(navigator) => setNavigator(navigator)}/>
+      <EntryProvider>
+        <UserProvider>
+          <App ref={(navigator) => setNavigator(navigator)}/>
+        </UserProvider>
+      </EntryProvider>
     </AuthProvider> 
   )
 }
