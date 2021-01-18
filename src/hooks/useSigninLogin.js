@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Context as AuthContext } from '../context/EntryContext'
+import { Context as AuthContext } from '../context/AuthContext'
 import { Context as EntryContext } from '../context/EntryContext'
 
 export default () => {
@@ -9,6 +9,7 @@ export default () => {
     const signinLogin = input => {
         signinPassword(input)
         //adds password with input to the initial entry state 
+        
         signin(email, password)
         //produces token for user 
     }
