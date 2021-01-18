@@ -6,6 +6,7 @@ import FormView from '../components/FormView'
 import useSignupLogin from '../hooks/useSignupLogin'
 
 const InterestedInSignUpScreen = () => {
+    const [signupLogin] = useSignupLogin()
 
     return (
         <FormView>
@@ -13,7 +14,7 @@ const InterestedInSignUpScreen = () => {
             <Form 
                 placeholder='Interested In?'
                 title='Continue'
-                onPress={useSignupLogin}    
+                onPress={signupLogin}    
             />
         </FormView>
     )

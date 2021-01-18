@@ -6,7 +6,7 @@ export default () => {
     const { signin } = useContext(AuthContext)
     const { state: {email, password}, signinPassword } = useContext(EntryContext)
 
-    const login = input => {
+    const signinLogin = input => {
         signinPassword(input)
         //adds password with input to the initial entry state 
         signin(email, password)
@@ -15,6 +15,6 @@ export default () => {
 
     //MAY NEED TO PLACE SIGNINPASSWORD IN A USEEFFECT SOMEHOW
 
-    return [login]
+    return [signinLogin]
 
 }

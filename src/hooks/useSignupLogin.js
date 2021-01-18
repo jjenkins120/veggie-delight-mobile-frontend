@@ -9,7 +9,7 @@ export default () => {
     const { state , addInterestedIn } = useContext(EntryContext)
     const { addNewUser } = useContext(UserContext)
 
-    const login = input => {
+    const signupLogin = input => {
         addInterestedIn(input)
         //pull interested in from the form input and attach to state
         addNewUser(state)
@@ -20,5 +20,5 @@ export default () => {
 
     //MAY NEED TO PLACE ADDINTERESTEDIN IN A USEEFFECT SOMEHOW
 
-    return [login]
+    return [signupLogin]
 }

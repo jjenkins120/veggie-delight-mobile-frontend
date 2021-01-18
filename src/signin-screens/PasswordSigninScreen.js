@@ -6,6 +6,7 @@ import FormView from '../components/FormView'
 import useSigninLogin from '../hooks/useSigninLogin'
 
 const PasswordSignInScreen = () => {
+    const [signinLogin] = useSigninLogin()
 
     return (
         <FormView>
@@ -13,7 +14,7 @@ const PasswordSignInScreen = () => {
             <Form 
                 placeholder='Password'
                 title='Login'
-                onPress={useSigninLogin}
+                onPress={signinLogin}
             />
         </FormView>
     )
