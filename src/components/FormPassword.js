@@ -7,6 +7,11 @@ const FormPassword = ({ placeholder, secondPlaceholder, title, onPress }) => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState(null)
+
+    useEffect(() => {
+    if (password==="" && confirmPassword === ""){
+        return () => setErrorMessage(null)
+    }}, [password])
     
     return (
         <View style={styles.container}>
