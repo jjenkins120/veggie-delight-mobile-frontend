@@ -9,11 +9,11 @@ export default () => {
     const { state , addInterestedIn } = useContext(EntryContext)
     const { addNewUser } = useContext(UserContext)
 
-    const signupLogin = async (input) => {
+    const signupLogin = input => {
         addInterestedIn(input)
         //pull interested in from the form input and attach to state
         console.log(state)
-        await addNewUser(state)
+        addNewUser(state)
         //send a post request to the backend with all state user attributes
         signin(state.email, state.password)
         //get a token for the new user and navigate them to the home screen

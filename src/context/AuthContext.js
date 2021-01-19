@@ -22,7 +22,7 @@ const authReducer = (state, action) => {
 const signin = dispatch => async ({ email, password }) => {
     try {
         const response = await veggieBackendApi.post('/api/v1/auth', { email, password })
-        await AsyncStorage.setItem('token', response.token)
+        await AsyncStorage.setItem('token', response.data.token)
         dispatch({ type: 'signin', payload: response })
         navigate('PotentialMatch')
         
@@ -33,6 +33,35 @@ const signin = dispatch => async ({ email, password }) => {
         })
     }    
 }
+
+// const signin = dispatch => (email, password) => {
+//     // console.log(email)
+//     // console.log(password)
+//     const authObj = { 
+//         email: email, 
+//         password: 123
+//     }
+//     const reqObj = {
+//         method: 'POST', 
+//         headers: {
+//         'Content-Type': 'application/json'
+//         }, 
+//         body: JSON.stringify(authObj)
+//     }
+//     fetch('http://localhost:3000/api/v1/auth', reqObj)
+//     .then(resp => resp.json())
+//     .then(data => {
+//       if (data.error){
+//         console.log(data.error)
+//         dispatch({ type: 'add_error', payload: data.error })
+//       } else {
+//         AsyncStorage.setItem('token', data.token)
+//         console.log(data)  
+//         dispatch({ type: 'signin', payload: data })
+//         navigate('PotentialMatch')
+//       }
+//     })
+// }
 
 const clearErrorMessage = dispatch => () => {
     dispatch({ type: 'clear_error_message' })

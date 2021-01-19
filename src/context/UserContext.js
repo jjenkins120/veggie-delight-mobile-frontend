@@ -19,7 +19,7 @@ const fetchUserData = dispatch => async (id) => {
 } 
 
 const addNewUser = dispatch => async (state) => {
-    const response = await veggieBackendApi.post('/users', {state})
+    const response = await veggieBackendApi.post('/users', state)
     dispatch({ type:'new_user', payload: response})
 }
 
