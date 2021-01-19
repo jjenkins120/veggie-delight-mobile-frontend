@@ -19,7 +19,5 @@ export default () => {
         //get a token for the new user and navigate them to the home screen
     }
 
-    //MAY NEED TO PLACE ADDINTERESTEDIN IN A USEEFFECT SOMEHOW
-
     return [signupLogin]
 }
