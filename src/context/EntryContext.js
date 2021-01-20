@@ -10,19 +10,19 @@ const entryReducer = (state, action) => {
         case 'add_password': 
             return {...state, password: action.payload}
         case 'add_first_name': 
-            return {...state, firstName: action.payload}
+            return {...state, first_name: action.payload}
         case 'add_birth_date': 
-            return {...state, birthDate: action.payload}
+            return {...state, birth_date: action.payload}
         case 'add_profile_img_url': 
-            return {...state, profileImgUrl: action.payload}
+            return {...state, profile_img_url: action.payload}
         case 'add_veggie_type': 
-            return {...state, veggieType: action.payload}
+            return {...state, veggie_type: action.payload}
         case 'add_bio': 
             return {...state, bio: action.payload}
         case 'add_how_far': 
-            return {...state, howFar: action.payload}
+            return {...state, how_far: action.payload}
         case 'add_interested_in': 
-            return {...state, interestedIn: action.payload}
+            return {...state, interested_in: action.payload}
         default: 
             return state
     }
@@ -100,13 +100,13 @@ export const { Provider, Context } = createDataContext(
     { 
         email:'', 
         password:'', 
-        firstName: '',
-        birthDate: '',
-        veggieType: '',
+        first_name: '',
+        birth_date: '',
+        veggie_type: '',
         bio: '',
-        profileImgUrl: '',
-        interestedIn: '',
-        howFar: 0,
+        profile_img_url: '',
+        interested_in: '',
+        how_far: 0,
     }
 )
 

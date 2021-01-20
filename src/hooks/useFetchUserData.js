@@ -4,9 +4,14 @@ import { Context as UserContext } from '../context/UserContext'
 
 export default () => {
     const { fetchUserData } = useContext(UserContext)
-    const { state: { id } } = useContext(AuthContext)
+    const { state } = useContext(AuthContext)
 
-    const callFetch = () => fetchUserData(id)
+    const callFetch = () => {
+        console.log(state.id)
+        fetchUserData(state.id)
+    }
+
+    
 
     return [callFetch]
 
