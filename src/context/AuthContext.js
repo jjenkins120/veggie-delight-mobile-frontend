@@ -9,7 +9,7 @@ const authReducer = (state, action) => {
             return {...state, errorMessage: action.payload}
         case 'store_token': 
         //MAY NEED TO CONFIRM IF THIS IS THE PROPER TO ASSIGN STATE ITEMS FROM THE ACTION OBJECT
-            return { token: action.payload, id: '', errorMessage: ''}
+            return {...state, token: action.payload }
         case 'store_id':
             return { ...state, id: action.payload }
         case 'clear_error_message':
@@ -41,7 +41,7 @@ const signin = dispatch => (email, password) => {
     // console.log(password)
     const authObj = { 
         email: email, 
-        password: 123
+        password: password
     }
     const reqObj = {
         method: 'POST', 
@@ -53,10 +53,13 @@ const signin = dispatch => (email, password) => {
     fetch('http://localhost:3000/api/v1/auth', reqObj)
     .then(resp => resp.json())
     .then(data => {
+        // console.log(data.id)
       if (data.error){
-        console.log(data.error)
+        // console.log(data.error)
         dispatch({ type: 'add_error', payload: data.error })
       } else {
+        // console.log(data.token)
+        console.log(data)
         AsyncStorage.setItem('token', data.token) 
         dispatch({ type: 'store_token', payload: data.token })
         dispatch({ type: 'store_id', payload: data.id })

@@ -5,15 +5,15 @@ import { Context as UserContext } from '../context/UserContext'
 
 
 export default () => {
-    const { signin } = useContext(AuthContext)
-    const { state , addInterestedIn } = useContext(EntryContext)
+    const { state } = useContext(EntryContext)
     const { addNewUser } = useContext(UserContext)
+    const { signin } = useContext(AuthContext)
 
     const signupLogin = async (input) => {
 
         const stateObj = {...state, interested_in: input}
 
-        addInterestedIn(input)
+        // addInterestedIn(input)
         //pull interested in from the form input and attach to state
         await addNewUser(stateObj)
         //send a post request to the backend with all state user attributes

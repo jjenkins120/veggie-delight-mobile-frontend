@@ -4,9 +4,7 @@ import { navigate } from '../navigationRef'
 
 const userReducer = (state, action) => {
     switch (action.type){
-        case 'fetch_user':
-            return {...state, user: action.payload}
-        case 'new_user':
+        case 'store_user':
             return {...state, user: action.payload}
         default: 
             return state
@@ -27,11 +25,12 @@ const userReducer = (state, action) => {
 const fetchUserData = dispatch => id => {
     //     const response = await veggieBackendApi.get(`/users/${id}`)
     //     dispatch({ type:'fetch_user', payload: response})
+    console.log(id)
     fetch(`http://localhost:3000/users/${id}`)
     .then(resp => resp.json())
     .then(user => { 
-        console.log(user) 
-        dispatch({ type: 'fetch_user', payload: user })
+        console.log(user)
+        dispatch({ type: 'store_user', payload: user })
         // navigate('PotentialMatch')
     })
 
@@ -53,7 +52,7 @@ const addNewUser = dispatch => state => {
     .then(resp => resp.json())
     .then(user => { 
         console.log(user) 
-        dispatch({ type: 'new_user', payload: user })
+        dispatch({ type: 'store_user', payload: user })
         // navigate('PotentialMatch')
     })
 }
