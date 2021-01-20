@@ -21,6 +21,7 @@ import PasswordSignupScreen from './src/signup-screens/PasswordSignupScreen'
 import ProfileImgUrlSignupScreen from './src/signup-screens/ProfileImgUrlSignupScreen'
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen'
 import VeggieTypeSignupScreen from './src/signup-screens/VeggieTypeSignupScreen'
+import LoadingScreen from './src/signup-screens/LoadingScreen'
 import { Provider as EntryProvider } from './src/context/EntryContext'
 import { Provider as AuthProvider } from './src/context/AuthContext'
 import { Provider as UserProvider } from './src/context/UserContext'
@@ -42,7 +43,8 @@ const switchNavigator = createSwitchNavigator({
     VeggieTypeSignup: VeggieTypeSignupScreen, 
     BioSignup: BioSignupScreen,
     HowFarSignup: HowFarSignupScreen,
-    InterestedInSignup: InterestedInSignupScreen
+    InterestedInSignup: InterestedInSignupScreen,
+    Loading: LoadingScreen
   }), 
 
   tabFlow: createMaterialTopTabNavigator({

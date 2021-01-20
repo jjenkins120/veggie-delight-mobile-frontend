@@ -38,7 +38,7 @@ const fetchUserData = dispatch => id => {
 
 
 
-const addNewUser = dispatch => state => {
+const addNewUser = dispatch => newUserObj => {
     // console.log(email)
     // console.log(password)
     const reqObj = {
@@ -46,7 +46,7 @@ const addNewUser = dispatch => state => {
         headers: {
         'Content-Type': 'application/json'
         }, 
-        body: JSON.stringify(state)
+        body: JSON.stringify(newUserObj)
     }
     fetch('http://localhost:3000/users', reqObj)
     .then(resp => resp.json())

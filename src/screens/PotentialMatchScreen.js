@@ -1,19 +1,19 @@
 import React, { useEffect, useContext } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-elements'
-import useFetchUserData from '../hooks/useFetchUserData'
 import { Context as UserContext } from '../context/UserContext'
+import { Context as AuthContext } from '../context/AuthContext'
 
 const PotentialMatchScreen = () => {
-    const { state } = useContext(UserContext)
-    const [callFetch] = useFetchUserData()
+    const { state : { user }, fetchUserData } = useContext(UserContext)
+    const { state: { id } } = useContext(AuthContext)
 
-    useEffect(() => callFetch, [])
+    useEffect(() => fetchUserData(id), [])
 
     return (
         <View>
             <Text>Potential Match Screen</Text>
-            <Text></Text>
+            <Text>{user.first_name}</Text>
         </View>
     )
 }
