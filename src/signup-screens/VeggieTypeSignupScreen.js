@@ -10,7 +10,6 @@ const VeggieTypeSignupScreen = () => {
 
     return (
         <FormView>
-            <Text>Veggie Type Sign up</Text>
             <Form
                 placeholder='What is your veggie type?'
                 title='Continue'

@@ -10,7 +10,6 @@ const PasswordSignUpScreen = () => {
 
     return (
         <FormView>
-            <Text>Password Sign Up Screen</Text>
             <FormPassword 
                 placeholder='Password'
                 secondPlaceholder='Confirm Password'

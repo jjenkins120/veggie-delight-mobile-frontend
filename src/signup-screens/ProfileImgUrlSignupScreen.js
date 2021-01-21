@@ -10,7 +10,6 @@ const ProfileImgUrlSignupScreen = () => {
 
     return (
         <FormView>
-            <Text>Profile Img Sign up</Text>
             <Form 
                 placeholder='Profile Img Url'
                 title='Continue'

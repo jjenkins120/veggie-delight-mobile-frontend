@@ -6,7 +6,6 @@ import AppButton from '../components/AppButton'
 const LoadScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Text>Load Screen</Text>
             <AppButton 
                 title='Sign In'
                 onPress={() => navigation.navigate('EmailSignin') } 

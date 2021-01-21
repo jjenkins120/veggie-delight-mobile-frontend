@@ -10,7 +10,6 @@ const FirstNameSignupScreen = () => {
 
     return (
         <FormView>
-            <Text>First Name Sign up Screen</Text>
             <Form 
                 placeholder='First Name' 
                 title='Continue' 

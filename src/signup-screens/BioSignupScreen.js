@@ -10,7 +10,6 @@ const BioSignUpScreen = () => {
 
     return (
         <FormView>
-            <Text>Bio Sign Up Screen</Text>
             <Form 
                 placeholder='Bio'
                 title='Continue'

@@ -10,7 +10,6 @@ const HowFarSignUpScreen = () => {
     
     return (
         <FormView>
-            <Text>How Far Sign up</Text>
             <Form 
                 placeholder='How far would you travel?'
                 title='Continue'

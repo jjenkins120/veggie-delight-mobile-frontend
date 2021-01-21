@@ -10,7 +10,6 @@ const EmailSignUpScreen = () => {
 
     return (
         <FormView>
-            <Text>Email Sign up Screen</Text>
             <Form 
                 placeholder='Email'
                 title='Continue'

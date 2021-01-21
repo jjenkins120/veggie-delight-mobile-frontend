@@ -10,7 +10,6 @@ const BirthDateSignupScreen = () => {
 
     return (
         <FormView>
-            <Text>Birth Date Sign up Screen</Text>
             <Form 
                 placeholder='Birth Date' 
                 title='Continue' 
