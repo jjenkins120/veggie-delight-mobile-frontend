@@ -27,7 +27,7 @@ import { Provider as AuthProvider } from './src/context/AuthContext'
 import { Provider as UserProvider } from './src/context/UserContext'
 
 const switchNavigator = createSwitchNavigator({
-  // ResolveAuth: ResolveAuthScreen, 
+  ResolveAuth: ResolveAuthScreen, 
   //because resolveauth is listed at the top, it will run as the default route unless an initial default is specified
   loadFlow: createStackNavigator({
     Load: LoadScreen,

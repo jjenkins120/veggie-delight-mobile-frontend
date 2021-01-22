@@ -58,7 +58,8 @@ const signin = dispatch => (email, password) => {
       } else {
         // console.log(data.token)
         console.log('hitting the signin with token')
-        AsyncStorage.setItem('token', data.token) 
+        AsyncStorage.setItem('token', data.token)
+        // AsyncStorage.setItem('id', data.id) 
         dispatch({ type: 'store_token', payload: data.token })
         dispatch({ type: 'store_id', payload: data.id })
         navigate('PotentialMatch')
@@ -73,6 +74,7 @@ const clearErrorMessage = dispatch => () => {
 const tryLocalSignin = dispatch => async () => {
     const token = await AsyncStorage.getItem('token')
     if (token){
+        // console.log(token)
         dispatch({ type: 'store_token', payload: token })
         navigate('PotentialMatch')
     } else {
