@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Text } from 'react-native-elements'
 import AppButton from '../components/AppButton'
 
 const LoadScreen = ({ navigation }) => {

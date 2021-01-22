@@ -5,7 +5,7 @@ import { Context as UserContext } from '../context/UserContext'
 import { Context as AuthContext } from '../context/AuthContext'
 
 const PotentialMatchScreen = () => {
-    const { state : { user }, fetchUserData } = useContext(UserContext)
+    const { state: { user }, fetchUserData } = useContext(UserContext)
     const { state: { id } } = useContext(AuthContext)
 
     useEffect(() => fetchUserData(id), [])
@@ -14,12 +14,15 @@ const PotentialMatchScreen = () => {
         <View>
             <Text>Potential Match Screen</Text>
             <Text>{user.first_name}</Text>
+            <Text>{user.veggie_type}</Text>
+            <Text>{user.how_far}</Text>
+            <Text>{user.bio}</Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-
+    
 })
 
 export default PotentialMatchScreen

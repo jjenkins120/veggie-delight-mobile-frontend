@@ -37,8 +37,6 @@ const authReducer = (state, action) => {
 // }
 
 const signin = dispatch => (email, password) => {
-    // console.log(email)
-    // console.log(password)
     const authObj = { 
         email: email, 
         password: password
@@ -59,7 +57,7 @@ const signin = dispatch => (email, password) => {
         dispatch({ type: 'add_error', payload: data.error })
       } else {
         // console.log(data.token)
-        console.log(data)
+        console.log('hitting the signin with token')
         AsyncStorage.setItem('token', data.token) 
         dispatch({ type: 'store_token', payload: data.token })
         dispatch({ type: 'store_id', payload: data.id })

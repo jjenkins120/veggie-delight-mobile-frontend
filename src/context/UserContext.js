@@ -29,7 +29,6 @@ const fetchUserData = dispatch => id => {
     fetch(`http://localhost:3000/users/${id}`)
     .then(resp => resp.json())
     .then(user => { 
-        console.log(user)
         dispatch({ type: 'store_user', payload: user })
         // navigate('PotentialMatch')
     })
@@ -38,9 +37,9 @@ const fetchUserData = dispatch => id => {
 
 
 
-const addNewUser = dispatch => newUserObj => {
-    // console.log(email)
-    // console.log(password)
+const addNewUser = dispatch => async (signin, email, password, newUserObj) => {
+    console.log(email)
+    console.log(password)
     const reqObj = {
         method: 'POST', 
         headers: {
@@ -48,12 +47,13 @@ const addNewUser = dispatch => newUserObj => {
         }, 
         body: JSON.stringify(newUserObj)
     }
-    fetch('http://localhost:3000/users', reqObj)
+    
+    await fetch('http://localhost:3000/users', reqObj)
     .then(resp => resp.json())
     .then(user => { 
-        console.log(user) 
+        console.log(user)
         dispatch({ type: 'store_user', payload: user })
-        // navigate('PotentialMatch')
+        signin(email, password) 
     })
 }
 
