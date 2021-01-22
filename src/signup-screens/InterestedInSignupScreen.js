@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-import { Text } from 'react-native-elements'
 import Form from '../components/Form'
 import FormView from '../components/FormView'
 import useSignupLogin from '../hooks/useSignupLogin'

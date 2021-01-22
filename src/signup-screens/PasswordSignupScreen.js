@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { StyleSheet } from 'react-native'
-import { Text } from 'react-native-elements'
 import FormPassword from '../components/FormPassword'
 import FormView from '../components/FormView'
 import { Context as EntryContext } from '../context/EntryContext'
