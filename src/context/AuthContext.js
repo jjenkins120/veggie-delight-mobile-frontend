@@ -56,10 +56,10 @@ const signin = dispatch => (email, password) => {
         // console.log(data.error)
         dispatch({ type: 'add_error', payload: data.error })
       } else {
-        // console.log(data.token)
         console.log('hitting the signin with token')
+        console.log(data)
         AsyncStorage.setItem('token', data.token)
-        // AsyncStorage.setItem('id', data.id) 
+        AsyncStorage.setItem('id', data.id.toString()) 
         dispatch({ type: 'store_token', payload: data.token })
         dispatch({ type: 'store_id', payload: data.id })
         navigate('PotentialMatch')
@@ -72,10 +72,13 @@ const clearErrorMessage = dispatch => () => {
 }
 
 const tryLocalSignin = dispatch => async () => {
-    const token = await AsyncStorage.getItem('token')
-    if (token){
-        // console.log(token)
+    const [token, id] = await Promise.all([AsyncStorage.getItem('token'), AsyncStorage.getItem('id')])
+    // const id = await AsyncStorage.getItem('id')
+    if (token && id){
+        console.log(token)
+        console.log(id)
         dispatch({ type: 'store_token', payload: token })
+        dispatch({ type: 'store_id', payload: parseInt(id) })
         navigate('PotentialMatch')
     } else {
         navigate('Load')
@@ -83,7 +86,7 @@ const tryLocalSignin = dispatch => async () => {
 }
 
 const signout = dispatch => async () => {
-    await AsyncStorage.removeItem('token')
+    await Promise.all([AsyncStorage.removeItem('token'), AsyncStorage.removeItem('id')])
     dispatch({ type: 'signout'})
     navigate('Load')
 }
