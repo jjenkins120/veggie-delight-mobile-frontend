@@ -1,7 +1,8 @@
 import React from 'react'
-import { createAppContainer, createSwitchNavigator } from 'react-navigation'
+import { StyleSheet } from 'react-native'
+import { createAppContainer, createSwitchNavigator, SafeAreaView } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
-import { createMaterialTopTabNavigator } from 'react-navigation-tabs'
+import { createMaterialTopTabNavigator, MaterialTopTabBar } from 'react-navigation-tabs'
 import { setNavigator } from './src/navigationRef'
 import AccountScreen from './src/screens/AccountScreen'
 import MessageScreen from './src/screens/MessageScreen'
@@ -26,6 +27,52 @@ import { Provider as EntryProvider } from './src/context/EntryContext'
 import { Provider as AuthProvider } from './src/context/AuthContext'
 import { Provider as UserProvider } from './src/context/UserContext'
 
+const SafeAreaMaterialTopTabBar = ({ ...props }) => (
+  <SafeAreaView 
+    style={styles.safeAreaView}
+    // forceInset={{ top: 'always', horizontal: 'never', bottom: 'never' }}
+  >
+    <MaterialTopTabBar 
+      {...props} 
+      activeTintColor='green'
+      indicatorStyle={{ backgroundColor: 'red' }}
+      style={styles.tabBar}
+      inactiveTintColor='purple'
+    />
+  </SafeAreaView>
+);
+
+const options = {
+  tabBarComponent: props => (<SafeAreaMaterialTopTabBar {...props} />),
+};
+
+const tabFlow = createMaterialTopTabNavigator(
+  {
+    PotentialMatch: {
+      screen: PotentialMatchScreen,
+      navigationOptions: {
+        title: 'Matches',
+        swipeEnabled: false
+      }
+    },
+    Message: {
+      screen: MessageScreen,
+      navigationOptions: {
+        title: 'Messages',
+        swipeEnabled: false
+      }
+    },
+    Account: {
+      screen: AccountScreen,
+      navigationOptions: {
+        title: 'Account',
+        swipeEnabled: false
+      }
+    },
+  }, options
+)
+
+
 const switchNavigator = createSwitchNavigator({
   ResolveAuth: ResolveAuthScreen, 
   //because resolveauth is listed at the top, it will run as the default route unless an initial default is specified
@@ -47,15 +94,21 @@ const switchNavigator = createSwitchNavigator({
     Loading: LoadingScreen
   }), 
 
-  tabFlow: createMaterialTopTabNavigator({
-    PotentialMatch: PotentialMatchScreen,
-    Account: AccountScreen,
-    Message: MessageScreen
-  })
-
+  tabFlow
+  
 })
 
 const App = createAppContainer(switchNavigator)
+
+const styles = StyleSheet.create({
+  safeAreaView: {
+    paddingTop: 45
+  },
+  tabBar: {
+    backgroundColor: 'yellow'
+  }
+})
+
 
 export default () => {
   return (
@@ -68,3 +121,4 @@ export default () => {
     </AuthProvider> 
   )
 }
+
