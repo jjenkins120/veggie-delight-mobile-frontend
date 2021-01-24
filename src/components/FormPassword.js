@@ -6,16 +6,15 @@ import AppButton from './AppButton'
 const FormPassword = ({ placeholder, secondPlaceholder, title, onPress }) => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [errorMessage, setErrorMessage] = useState(null)
+    const [pwdErrorMessage, setPwdErrorMessage] = useState(null)
 
     useEffect(() => {
-    if (password==="" && confirmPassword === ""){
-        return () => setErrorMessage(null)
-    }}, [password])
+    (!password  && !confirmPassword ) ? setPwdErrorMessage(null) : null
+    }, [password])
     
     return (
         <View style={styles.container}>
-            <Text style={styles.errorMessage}>{errorMessage}</Text>
+            <Text style={styles.pwdErrorMessage}>{pwdErrorMessage}</Text>
             <Input
                 placeholder={placeholder}
                 secureTextEntry={true}
@@ -34,7 +33,7 @@ const FormPassword = ({ placeholder, secondPlaceholder, title, onPress }) => {
             />
             <AppButton 
                 title={title}
-                onPress={password === confirmPassword ? () => onPress(password) : () => setErrorMessage('Passwords do not match')}
+                onPress={password === confirmPassword ? () => onPress(password) : () => setPwdErrorMessage('Passwords do not match')}
             />
         </View>
     )
@@ -48,7 +47,7 @@ const styles = StyleSheet.create({
     form: {
         
     },
-    errorMessage: {
+    pwdErrorMessage: {
         textAlign: 'center',
         color: 'red', 
         fontWeight: 'bold' 

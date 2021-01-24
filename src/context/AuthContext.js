@@ -53,7 +53,7 @@ const signin = dispatch => (email, password) => {
     .then(data => {
         // console.log(data.id)
       if (data.error){
-        // console.log(data.error)
+        console.log(data.error)
         dispatch({ type: 'add_error', payload: data.error })
       } else {
         console.log('hitting the signin with token')
