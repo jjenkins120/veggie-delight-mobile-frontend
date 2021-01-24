@@ -6,15 +6,25 @@ import AppButton from './AppButton'
 const FormPassword = ({ placeholder, secondPlaceholder, title, onPress }) => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [pwdErrorMessage, setPwdErrorMessage] = useState(null)
+    const [pwdErrorMessage, setPwdErrorMessage] = useState('')
 
     useEffect(() => {
     (!password  && !confirmPassword ) ? setPwdErrorMessage(null) : null
     }, [password])
     
+    const pressValidation = () => {
+        if (!password && !confirmPassword){
+            setPwdErrorMessage('Field cannot be empty')
+        } else if (password !== confirmPassword){
+            setPwdErrorMessage('Passwords do not match')
+        } else {
+            onPress(password)
+        }
+    }
+
     return (
         <View style={styles.container}>
-            <Text style={styles.pwdErrorMessage}>{pwdErrorMessage}</Text>
+            {pwdErrorMessage ? <Text style={styles.pwdErrorMessage}>{pwdErrorMessage}</Text> : null}
             <Input
                 placeholder={placeholder}
                 secureTextEntry={true}
@@ -33,7 +43,7 @@ const FormPassword = ({ placeholder, secondPlaceholder, title, onPress }) => {
             />
             <AppButton 
                 title={title}
-                onPress={password === confirmPassword ? () => onPress(password) : () => setPwdErrorMessage('Passwords do not match')}
+                onPress={pressValidation}
             />
         </View>
     )
