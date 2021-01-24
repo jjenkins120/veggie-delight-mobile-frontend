@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {StyleSheet, View} from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { Input, Text } from 'react-native-elements'
 import AppButton from './AppButton'
 
@@ -22,31 +22,52 @@ const FormPassword = ({ placeholder, secondPlaceholder, title, onPress }) => {
         }
     }
 
-    return (
-        <View style={styles.container}>
-            {pwdErrorMessage ? <Text style={styles.pwdErrorMessage}>{pwdErrorMessage}</Text> : null}
-            <Input
-                placeholder={placeholder}
-                secureTextEntry={true}
-                autoCapitalize='none'
-                autoCorrect={false}
-                value={password}
-                onChangeText={setPassword}
-            />
-            <Input
-                placeholder={secondPlaceholder}
-                secureTextEntry={true}
-                autoCapitalize='none'
-                autoCorrect={false}
-                value={confirmPassword}
-                onChangeText={setConfirmPassword}
-            />
-            <AppButton 
-                title={title}
-                onPress={pressValidation}
-            />
-        </View>
-    )
+    if (secondPlaceholder){
+        return (
+            <View style={styles.container}>
+                {pwdErrorMessage ? <Text style={styles.pwdErrorMessage}>{pwdErrorMessage}</Text> : null}
+                <Input
+                    placeholder={placeholder}
+                    secureTextEntry={true}
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                    value={password}
+                    onChangeText={setPassword}
+                />
+                <Input
+                    placeholder={secondPlaceholder}
+                    secureTextEntry={true}
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                    value={confirmPassword}
+                    onChangeText={setConfirmPassword}
+                />
+                <AppButton 
+                    title={title}
+                    onPress={pressValidation}
+                />
+            </View>
+        )
+    } else {
+        return (
+            <View style={styles.container}>
+                <Input
+                    placeholder={placeholder}
+                    secureTextEntry={true}
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                    value={password}
+                    onChangeText={setPassword}
+                />
+                <AppButton 
+                    title={title}
+                    onPress={()=> onPress(password)}
+                />
+            </View>
+        )
+    }
+
+    
 
 }
 

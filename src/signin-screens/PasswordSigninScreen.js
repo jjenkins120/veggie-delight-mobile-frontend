@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { StyleSheet } from 'react-native'
 import { Text } from 'react-native-elements'
-import Form from '../components/Form'
+import FormPassword from '../components/FormPassword'
 import FormView from '../components/FormView'
 import { NavigationEvents } from 'react-navigation'
 import useSigninLogin from '../hooks/useSigninLogin'
@@ -15,7 +15,7 @@ const PasswordSignInScreen = () => {
         <FormView>
             <NavigationEvents onWillFocus={clearErrorMessage}/>
             {errorMessage ? <Text>{errorMessage}</Text> : null}
-            <Form 
+            <FormPassword 
                 placeholder='Password'
                 title='Login'
                 onPress={signinLogin}
