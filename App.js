@@ -22,7 +22,7 @@ import PasswordSignupScreen from './src/signup-screens/PasswordSignupScreen'
 import ProfileImgUrlSignupScreen from './src/signup-screens/ProfileImgUrlSignupScreen'
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen'
 import VeggieTypeSignupScreen from './src/signup-screens/VeggieTypeSignupScreen'
-import LoadingScreen from './src/signup-screens/LoadingScreen'
+// import LoadingScreen from './src/signup-screens/LoadingScreen'
 import { Provider as EntryProvider } from './src/context/EntryContext'
 import { Provider as AuthProvider } from './src/context/AuthContext'
 import { Provider as UserProvider } from './src/context/UserContext'
@@ -77,25 +77,107 @@ const switchNavigator = createSwitchNavigator({
   ResolveAuth: ResolveAuthScreen, 
   //because resolveauth is listed at the top, it will run as the default route unless an initial default is specified
   loadFlow: createStackNavigator({
-    Load: LoadScreen,
-    Signin: SigninScreen,
-    GoogleSignin: GoogleSigninScreen,
-    EmailSignin: EmailSigninScreen, 
-    PasswordSignin: PasswordSigninScreen,
-    EmailSignup: EmailSignupScreen, 
-    PasswordSignup: PasswordSignupScreen, 
-    FirstNameSignup: FirstNameSignupScreen,
-    BirthDateSignup: BirthDateSignupScreen,
-    ProfileImgUrlSignup: ProfileImgUrlSignupScreen,
-    VeggieTypeSignup: VeggieTypeSignupScreen, 
-    BioSignup: BioSignupScreen,
-    HowFarSignup: HowFarSignupScreen,
-    InterestedInSignup: InterestedInSignupScreen,
-    Loading: LoadingScreen
+    Load: {
+      screen: LoadScreen,
+      navigationOptions: {
+        title: 'Back'
+      }
+    },
+    // Signin: SigninScreen,
+    // GoogleSignin: GoogleSigninScreen,
+    EmailSignin: {
+      screen: EmailSigninScreen,
+      navigationOptions: { 
+        title: null,
+        headerBackTitle: 'Back',
+        headerTransparent: true
+      }
+    },
+    PasswordSignin: {
+      screen: PasswordSigninScreen,
+      navigationOptions: {
+        title: null, 
+        headerBackTitle: 'Email',
+        headerTransparent: true
+      }
+    },  
+    EmailSignup: {
+      screen: EmailSignupScreen,
+      navigationOptions: {
+        title: null,
+        headerBackTitle: 'Back',
+        headerTransparent: true
+      }
+    },  
+    PasswordSignup: {
+      screen: PasswordSignupScreen,
+      navigationOptions: {
+        title: null, 
+        headerBackTitle: 'Email',
+        headerTransparent: true
+      }
+    },  
+    FirstNameSignup: {
+      screen: FirstNameSignupScreen,
+      navigationOptions: {
+        title: null, 
+        headerBackTitle: 'Password',
+        headerTransparent: true
+      }
+    },  
+    BirthDateSignup: {
+      screen: BirthDateSignupScreen,
+      navigationOptions: {
+        title: null, 
+        headerBackTitle: 'First Name',
+        headerTransparent: true
+      }
+    },  
+    ProfileImgUrlSignup: {
+      screen: ProfileImgUrlSignupScreen,
+      navigationOptions: {
+        title: null, 
+        headerBackTitle: 'Birth Date',
+        headerTransparent: true
+      }
+    },  
+    VeggieTypeSignup: {
+      screen: VeggieTypeSignupScreen,
+      navigationOptions: {
+        title: null, 
+        headerBackTitle: 'Profile Image',
+        headerTransparent: true
+      }
+    },  
+    BioSignup: {
+      screen: BioSignupScreen,
+      navigationOptions: {
+        title: null, 
+        headerBackTitle: 'Veggie Type',
+        headerTransparent: true
+      }
+    },  
+    HowFarSignup: {
+      screen: HowFarSignupScreen,
+      navigationOptions: {
+        title: null, 
+        headerBackTitle: 'Bio',
+        headerTransparent: true
+      }
+    }, 
+    InterestedInSignup: {
+      screen: InterestedInSignupScreen,
+      navigationOptions: {
+        title: null, 
+        headerBackTitle: 'How Far',
+        headerTransparent: true
+      }
+    }, 
+    // Loading: LoadingScreen
   }), 
 
   tabFlow
-  
+
 })
 
 const App = createAppContainer(switchNavigator)
