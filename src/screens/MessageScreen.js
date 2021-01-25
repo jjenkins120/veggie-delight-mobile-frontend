@@ -7,7 +7,6 @@ import MessagesContainer from '../containers/MessagesContainer'
 const MessageScreen = () => {
     return (
         <View>
-            <Text>Message Screen</Text>
             <MatchListContainer/>
             <MessagesContainer/>
         </View>

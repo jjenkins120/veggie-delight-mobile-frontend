@@ -21,8 +21,6 @@ const entryReducer = (state, action) => {
             return {...state, bio: action.payload}
         case 'add_how_far': 
             return {...state, how_far: action.payload}
-        // case 'add_interested_in': 
-        //     return {...state, interested_in: action.payload}
         default: 
             return state
     }
@@ -32,10 +30,6 @@ const signinEmail = dispatch => input => {
     dispatch({ type: 'add_email', payload: input})
     navigate('PasswordSignin')
 }
-
-// const signinPassword = dispatch => input => {
-//     dispatch({ type: 'add_password', payload: input})
-// }
 
 const addEmail = dispatch => input => {
     dispatch({ type: 'add_email', payload: input})
@@ -77,16 +71,11 @@ const addHowFar = dispatch => input => {
     navigate('InterestedInSignup')
 }
  
-// const addInterestedIn = dispatch => input => {
-//     dispatch({ type: 'add_interested_in', payload: input})
-// }
 
 export const { Provider, Context } = createDataContext(
     entryReducer, 
     { 
         signinEmail,
-        // signinPassword, 
-
         addEmail,
         addPassword, 
         addFirstName, 
@@ -95,7 +84,6 @@ export const { Provider, Context } = createDataContext(
         addBio, 
         addProfileImgUrl,
         addHowFar,
-        // addInterestedIn
     },
     { 
         email:'', 

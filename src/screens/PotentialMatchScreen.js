@@ -13,10 +13,6 @@ const PotentialMatchScreen = () => {
     return (
         <View>
             <Text>Potential Match Screen</Text>
-            <Text>{user.first_name}</Text>
-            <Text>{user.veggie_type}</Text>
-            <Text>{user.how_far}</Text>
-            <Text>{user.bio}</Text>
         </View>
     )
 }
