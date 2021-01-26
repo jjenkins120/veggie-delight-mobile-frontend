@@ -14,7 +14,8 @@ const userReducer = (state, action) => {
 const fetchUserData = dispatch => id => {
     fetch(`http://localhost:3000/users/${id}`)
     .then(resp => resp.json())
-    .then(user => { 
+    .then(user => {
+        console.log(user) 
         dispatch({ type: 'store_user', payload: user })
     })
 

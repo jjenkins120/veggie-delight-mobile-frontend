@@ -10,7 +10,7 @@ export default () => {
     const { signin } = useContext(AuthContext)
 
     const signupLogin = input => {
-        const stateObj = {...state, interested_in: input}
+        const stateObj = {...state, interested_in_veggie: input}
         addNewUser(signin, state.email, state.password, stateObj)
     }
 

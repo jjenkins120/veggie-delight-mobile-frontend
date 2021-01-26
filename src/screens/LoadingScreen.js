@@ -4,7 +4,7 @@ import {StyleSheet, Text} from 'react-native'
 const LoadingScreen = () => {
     return (
         <>
-            <Text style={styles.loading}>LOADING VEGGIES...</Text>
+            <Text style={styles.loading}>LOADING...</Text>
         </>
     )
 

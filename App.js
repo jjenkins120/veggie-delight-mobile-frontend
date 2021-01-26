@@ -15,8 +15,13 @@ import BioSignupScreen from './src/signup-screens/BioSignupScreen'
 import BirthDateSignupScreen from './src/signup-screens/BirthDateSignupScreen'
 import EmailSignupScreen from './src/signup-screens/EmailSignupScreen'
 import FirstNameSignupScreen from './src/signup-screens/FirstNameSignupScreen'
+import GenderSignupScreen from './src/signup-screens/GenderSignupScreen'
 import HowFarSignupScreen from './src/signup-screens/HowFarSignupScreen'
+import InterestedInAgeSignupScreen from './src/signup-screens/InterestedInAgeSignupScreen'
+import InterestedInGenderSignupScreen from './src/signup-screens/InterestedInGenderSignupScreen'
+import InterestedInLocationSignupScreen from './src/signup-screens/InterestedInLocationSignupScreen'
 import InterestedInSignupScreen from './src/signup-screens/InterestedInSignupScreen'
+import InterestedInVeggieSignupScreen from './src/signup-screens/InterestedInVeggieSignupScreen'
 import LoadScreen from './src/screens/LoadScreen'
 import PasswordSignupScreen from './src/signup-screens/PasswordSignupScreen'
 import ProfileImgUrlSignupScreen from './src/signup-screens/ProfileImgUrlSignupScreen'
@@ -125,11 +130,19 @@ const switchNavigator = createSwitchNavigator({
         headerTransparent: true
       }
     },  
+    GenderSignup: {
+      screen: GenderSignupScreen,
+      navigationOptions: {
+        title: null, 
+        headerBackTitle: 'First Name',
+        headerTransparent: true
+      }
+    },  
     BirthDateSignup: {
       screen: BirthDateSignupScreen,
       navigationOptions: {
         title: null, 
-        headerBackTitle: 'First Name',
+        headerBackTitle: 'Gender',
         headerTransparent: true
       }
     },  
@@ -157,22 +170,54 @@ const switchNavigator = createSwitchNavigator({
         headerTransparent: true
       }
     },  
-    HowFarSignup: {
-      screen: HowFarSignupScreen,
+    // HowFarSignup: {
+    //   screen: HowFarSignupScreen,
+    //   navigationOptions: {
+    //     title: null, 
+    //     headerBackTitle: 'Bio',
+    //     headerTransparent: true
+    //   }
+    // }, 
+    InterestedInGenderSignup: {
+      screen: InterestedInGenderSignupScreen,
       navigationOptions: {
         title: null, 
         headerBackTitle: 'Bio',
         headerTransparent: true
       }
     }, 
-    InterestedInSignup: {
-      screen: InterestedInSignupScreen,
+    InterestedInAgeSignup: {
+      screen: InterestedInAgeSignupScreen,
       navigationOptions: {
         title: null, 
-        headerBackTitle: 'How Far',
+        headerBackTitle: 'Interested in Gender',
         headerTransparent: true
       }
     }, 
+    InterestedInLocationSignup: {
+      screen: InterestedInLocationSignupScreen,
+      navigationOptions: {
+        title: null, 
+        headerBackTitle: 'Interested in Age',
+        headerTransparent: true
+      }
+    }, 
+    InterestedInVeggieSignup: {
+      screen: InterestedInVeggieSignupScreen,
+      navigationOptions: {
+        title: null, 
+        headerBackTitle: 'Interested in Location',
+        headerTransparent: true
+      }
+    }, 
+    // InterestedInSignup: {
+    //   screen: InterestedInSignupScreen,
+    //   navigationOptions: {
+    //     title: null, 
+    //     headerBackTitle: 'How Far',
+    //     headerTransparent: true
+    //   }
+    // }, 
     // Loading: LoadingScreen
   }), 
 

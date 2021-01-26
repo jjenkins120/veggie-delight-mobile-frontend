@@ -13,6 +13,7 @@ const PotentialMatchScreen = () => {
     return (
         <View>
             <Text>Potential Match Screen</Text>
+            <Text>{user.first_name}</Text>
         </View>
     )
 }
@@ -22,3 +23,12 @@ const styles = StyleSheet.create({
 })
 
 export default PotentialMatchScreen
+
+//we need to pull a list of users to this screen and render them one by one 
+
+//we need to filter those users that are pulled by the following:
+    // not current user
+    // veggie_type
+    // gender
+    // location
+    // age 

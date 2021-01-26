@@ -19,8 +19,18 @@ const entryReducer = (state, action) => {
             return {...state, veggie_type: action.payload}
         case 'add_bio': 
             return {...state, bio: action.payload}
-        case 'add_how_far': 
-            return {...state, how_far: action.payload}
+        // case 'add_how_far': 
+        //     return {...state, how_far: action.payload}
+        case 'add_gender': 
+            return {...state, gender: action.payload}
+        case 'add_interested_in_gender': 
+            return {...state, interested_in_gender: action.payload}
+        // case 'add_interested_in_veggie': 
+        //     return {...state, interested_in_veggie: action.payload}
+        case 'add_interested_in_location': 
+            return {...state, interested_in_location: action.payload}
+        case 'add_interested_in_age': 
+            return {...state, interested_in_age: action.payload}
         default: 
             return state
     }
@@ -43,6 +53,11 @@ const addPassword = dispatch => input => {
 
 const addFirstName = dispatch => input => {
     dispatch({ type: 'add_first_name', payload: input})
+    navigate('GenderSignup')
+}
+
+const addGender = dispatch => input => {
+    dispatch({ type: 'add_gender', payload: input})
     navigate('BirthDateSignup')
 }
 
@@ -63,13 +78,36 @@ const addVeggieType = dispatch => input => {
 
 const addBio = dispatch => input => {
     dispatch({ type: 'add_bio', payload: input})
-    navigate('HowFarSignup')
+    navigate('InterestedInGenderSignup')
 }
 
-const addHowFar = dispatch => input => {
-    dispatch({ type: 'add_how_far', payload: input})
-    navigate('InterestedInSignup')
+// const addHowFar = dispatch => input => {
+//     dispatch({ type: 'add_how_far', payload: input})
+//     navigate('InterestedInSignup')
+// }
+
+
+const addInterestedInGender = dispatch => input => {
+    dispatch({ type: 'add_interested_in_gender', payload: input})
+    navigate('InterestedInAgeSignup')
 }
+
+const addInterestedInAge = dispatch => input => {
+    dispatch({ type: 'add_interested_in_age', payload: input})
+    navigate('InterestedInLocationSignup')
+}
+
+const addInterestedInLocation = dispatch => input => {
+    dispatch({ type: 'add_interested_in_location', payload: input})
+    navigate('InterestedInVeggieSignup')
+}
+
+// const addInterestedInVeggie = dispatch => input => {
+//     dispatch({ type: 'add_interested_in_veggie', payload: input})
+//     navigate('')
+// }
+
+
  
 
 export const { Provider, Context } = createDataContext(
@@ -79,11 +117,17 @@ export const { Provider, Context } = createDataContext(
         addEmail,
         addPassword, 
         addFirstName, 
+        addGender, 
         addBirthDate, 
         addVeggieType,
         addBio, 
         addProfileImgUrl,
-        addHowFar,
+        // addHowFar,
+        addInterestedInGender,
+        addInterestedInLocation,
+        addInterestedInAge
+        // addInterestedInVeggie,
+        // addlocation
     },
     { 
         email:'', 
@@ -93,8 +137,21 @@ export const { Provider, Context } = createDataContext(
         veggie_type: '',
         bio: '',
         profile_img_url: '',
-        interested_in: '',
-        how_far: 0,
+        // interested_in: '',
+        // how_far: 0,
+        gender:'',
+
+        //THESE DEFAULT VALUES WILL NEED TO BE CHANGED FROM THIS:
+        // interested_in_gender:'',
+        // interested_in_veggie:'',
+        // interested_in_location:'',
+        // interested_in_age:'',
+        // location:''
+        //TO THIS:
+        interested_in_gender:[],
+        interested_in_veggie:[],
+        interested_in_location:{},
+        interested_in_age:{},
+        location: {}
     }
 )
-

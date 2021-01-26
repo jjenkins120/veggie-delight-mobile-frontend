@@ -17,7 +17,6 @@ const AccountScreen = () => {
             <Text>{user.birth_date}</Text>
             <Text>{user.bio}</Text>
             <Text>{user.profile_img_url}</Text>
-            <Text>{user.interested_in}</Text>
             <Text>{user.how_far}</Text>
             <AppButton
                 title='Sign out'

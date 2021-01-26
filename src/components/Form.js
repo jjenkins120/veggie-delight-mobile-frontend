@@ -23,6 +23,7 @@ const Form = ({ placeholder, title, onPress }) => {
             <AppButton 
                 title={title}
                 onPress={input ? () => onPress(input) : () => setErrorMessage('Field cannot be empty')}
+                // onPress={()=>onPress(input)}
             />
         </View>
     )
