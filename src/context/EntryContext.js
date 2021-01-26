@@ -92,8 +92,9 @@ const addInterestedInGender = dispatch => input => {
     navigate('InterestedInAgeSignup')
 }
 
-const addInterestedInAge = dispatch => input => {
-    dispatch({ type: 'add_interested_in_age', payload: input})
+const addInterestedInAge = dispatch => (input, secondInput) => {
+    const payloadObj = { min_age: input, max_age: secondInput }
+    dispatch({ type: 'add_interested_in_age', payload: payloadObj})
     navigate('InterestedInLocationSignup')
 }
 
