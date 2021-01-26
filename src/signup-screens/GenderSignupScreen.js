@@ -1,20 +1,36 @@
-import React, { useContext } from 'react'
-import { StyleSheet } from 'react-native'
-import Form from '../components/Form'
-import FormView from '../components/FormView'
+import React, { useState, useContext } from 'react'
+import { View, StyleSheet } from 'react-native'
+import { NavigationEvents } from 'react-navigation'
+import { Dropdown } from 'react-native-material-dropdown'
+import AppButton from '../components/AppButton'
 import { Context as EntryContext} from '../context/EntryContext'
 
 const GenderSignupScreen = () => {
     const { addGender } = useContext(EntryContext)
+    const [gender, setGender] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
+
+    const data = [{
+        value: 'Male'
+        }, {
+        value: 'Female'
+        }
+    ]
 
     return (
-        <FormView>
-            <Form 
-                placeholder='Gender' 
-                title='Continue' 
-                onPress={addGender}
+        <View>
+            <NavigationEvents onWillFocus={() => setErrorMessage('')}/>
+            {errorMessage ? <Text>{errorMessage}</Text> : null}
+            <Dropdown
+                label='Gender'
+                data={data}
+                onChangeText={()=> setGender(data.value)}
             />
-        </FormView>
+            <AppButton
+                title='Continue'
+                onPress={gender ? () => addGender(gender) : () => setErrorMessage('Please select one')}
+            />
+        </View>
     )
 }
 
