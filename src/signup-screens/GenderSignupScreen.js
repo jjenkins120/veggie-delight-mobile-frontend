@@ -1,14 +1,44 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { StyleSheet } from 'react-native'
 import Form from '../components/Form'
 import FormView from '../components/FormView'
+import { CheckBox } from 'react-native-elements';
 import { Context as EntryContext} from '../context/EntryContext'
 
 const GenderSignupScreen = () => {
+    const [checked, setChecked] = useState(false)
     const { addGender } = useContext(EntryContext)
 
     return (
         <FormView>
+            <CheckBox
+                title='Male'
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                checked={checked}
+                onPress={()=> setChecked(!checked)}
+            />
+            <CheckBox
+                title='Female'
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                checked={checked}
+                onPress={()=> setChecked(!checked)}
+            />
+            <CheckBox
+                title='Trans Male'
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                checked={checked}
+                onPress={()=> setChecked(!checked)}
+            />
+            <CheckBox
+                title='Non-Binary'
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                checked={checked}
+                onPress={()=> setChecked(!checked)}
+            />
             <Form 
                 placeholder='Gender' 
                 title='Continue' 
