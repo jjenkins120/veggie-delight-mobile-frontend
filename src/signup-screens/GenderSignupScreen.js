@@ -1,79 +1,27 @@
 import React, { useState, useContext } from 'react'
+import Dropdown from '../components/Dropdown'
 import { StyleSheet } from 'react-native'
-import Form from '../components/Form'
-import FormView from '../components/FormView'
-import { CheckBox } from 'react-native-elements';
 import { Context as EntryContext} from '../context/EntryContext'
 
 const GenderSignupScreen = () => {
-    const [checked, setChecked] = useState(false)
+    const [gender, setGender] = useState('')
     const { addGender } = useContext(EntryContext)
+    const genderArray = ['Male', 'Female', 'Trans Man', 'Trans Woman', 'Non-Binary']
 
     return (
-        <FormView>
-            <CheckBox
-                title='Male'
-                checkedIcon='dot-circle-o'
-                uncheckedIcon='circle-o'
-                checked={checked}
-                onPress={()=> setChecked(!checked)}
-            />
-            <CheckBox
-                title='Female'
-                checkedIcon='dot-circle-o'
-                uncheckedIcon='circle-o'
-                checked={checked}
-                onPress={()=> setChecked(!checked)}
-            />
-            <CheckBox
-                title='Trans Male'
-                checkedIcon='dot-circle-o'
-                uncheckedIcon='circle-o'
-                checked={checked}
-                onPress={()=> setChecked(!checked)}
-            />
-            <CheckBox
-                title='Non-Binary'
-                checkedIcon='dot-circle-o'
-                uncheckedIcon='circle-o'
-                checked={checked}
-                onPress={()=> setChecked(!checked)}
-            />
-            <Form 
-                placeholder='Gender' 
-                title='Continue' 
-                onPress={addGender}
-            />
-        </FormView>
+        <Dropdown
+            dropdownTitle='Gender'
+            inputArray={genderArray}
+            onPressItem={setGender}
+            selection={gender}
+            appbtnTitle='Continue' 
+            onPressBtn={addGender}
+        />
     )
-}
+}    
 
 const styles = StyleSheet.create({
 
 })
 
 export default GenderSignupScreen
-
-// const { addGender } = useContext(EntryContext)
-// const [gender, setGender] = useState('')
-// const [errorMessage, setErrorMessage] = useState('')
-
-// return (
-//     <FormView>
-//         <NavigationEvents onWillFocus={() => setErrorMessage('')}/>
-//         {errorMessage ? <Text>{errorMessage}</Text> : null}
-        
-//         <Text>Dropdown Menu</Text>
-
-
-//         <AppButton
-//             title='Continue'
-//             onPress={gender ? () => addGender(gender) : () => setErrorMessage('Please select one')}
-//         />
-//     </FormView>
-// )
-// }
-
-// const styles = StyleSheet.create({
-
-// })

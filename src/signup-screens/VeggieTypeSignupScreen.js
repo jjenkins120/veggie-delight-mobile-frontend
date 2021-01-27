@@ -1,43 +1,23 @@
 import React, { useState, useContext } from 'react'
 import { StyleSheet } from 'react-native'
-import Form from '../components/Form'
-import FormView from '../components/FormView'
-import { CheckBox } from 'react-native-elements';
+import Dropdown from '../components/Dropdown'
 import { Context as EntryContext } from '../context/EntryContext'
 
 const VeggieTypeSignupScreen = () => {
-    const [checked, setChecked] = useState(false)
+    const [veggie, setVeggie] = useState('')
     const { addVeggieType } = useContext(EntryContext)
 
+    const veggieArray = ['Lacto-Ovo', 'Vegatarian', 'Vegan', 'Pescatarian']
+
     return (
-        <FormView>
-            <CheckBox
-                title='Lacto-ovo'
-                checkedIcon='dot-circle-o'
-                uncheckedIcon='circle-o'
-                checked={checked}
-                onPress={()=> setChecked(!checked)}
-            />
-            <CheckBox
-                title='Vegan'
-                checkedIcon='dot-circle-o'
-                uncheckedIcon='circle-o'
-                checked={checked}
-                onPress={()=> setChecked(!checked)}
-            />
-            <CheckBox
-                title='Pescatarian'
-                checkedIcon='dot-circle-o'
-                uncheckedIcon='circle-o'
-                checked={checked}
-                onPress={()=> setChecked(!checked)}
-            />
-            <Form
-                placeholder='What is your veggie type?'
-                title='Continue'
-                onPress={addVeggieType}    
-            />
-        </FormView>
+        <Dropdown
+            dropdownTitle='Veggie Type'
+            inputArray={veggieArray}
+            onPressItem={setVeggie}
+            selection={veggie}
+            appbtnTitle='Continue' 
+            onPressBtn={addVeggieType}
+        />
     )
 }
 
