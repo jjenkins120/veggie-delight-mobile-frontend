@@ -5,12 +5,12 @@ import AppButton from './AppButton'
 
 const CheckboxList = () => {
     return (
-
+        <View></View> 
     )
 }
 
 const styles = StyleSheet.create({
-    
+
 })
 
 export default CheckboxList

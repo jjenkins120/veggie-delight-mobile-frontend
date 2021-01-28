@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
+import { NavigationEvents } from 'react-navigation'
 import FormView from './FormView'
 import AppButton from './AppButton'
 import { Button, Menu, Provider } from 'react-native-paper';
 
 const Dropdown = ({ dropdownTitle, inputArray, onPressItem, selection, appbtnTitle, onPressBtn }) => {
     const [visible, setVisible] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
 
     const openMenu = () => setVisible(true);
     const closeMenu = () => setVisible(false);
@@ -22,6 +24,8 @@ const Dropdown = ({ dropdownTitle, inputArray, onPressItem, selection, appbtnTit
     return (
         <FormView>
             <Provider>
+                <NavigationEvents onWillFocus={() => setErrorMessage('')}/>
+                {errorMessage ? <Text>{errorMessage}</Text> : null}
                 <View
                     style={styles.container}>
                     <Menu
@@ -37,7 +41,7 @@ const Dropdown = ({ dropdownTitle, inputArray, onPressItem, selection, appbtnTit
             </Provider>
             <AppButton
                 title={appbtnTitle}
-                onPress={() => onPressBtn(selection)}
+                onPress={selection? () => onPressBtn(selection) : () => setErrorMessage('You must make a selection') }
             />
         </FormView>
     )
