@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
-import FormView from '../components/FormView'
-import AppButton from '../components/AppButton'
-import { Button, Menu,Provider } from 'react-native-paper';
+import FormView from './FormView'
+import AppButton from './AppButton'
+import { Button, Menu, Provider } from 'react-native-paper';
 
 const Dropdown = ({ dropdownTitle, inputArray, onPressItem, selection, appbtnTitle, onPressBtn }) => {
     const [visible, setVisible] = useState(false)
