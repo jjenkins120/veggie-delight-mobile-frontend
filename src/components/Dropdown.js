@@ -12,7 +12,10 @@ const Dropdown = ({ dropdownTitle, inputArray, onPressItem, selection, appbtnTit
 
     const renderMenuItems = inputArray => {
         return inputArray.map(input => {
-            return <Menu.Item onPress={() => onPressItem(input)} title={input} key={input}/>
+            return <Menu.Item onPress={() => {
+                onPressItem(input)
+                closeMenu()
+            }} title={input} key={input}/>
         })
     }
 
@@ -20,8 +23,9 @@ const Dropdown = ({ dropdownTitle, inputArray, onPressItem, selection, appbtnTit
         <FormView>
             <Provider>
                 <View
-                    style={styles.dropdown}>
+                    style={styles.container}>
                     <Menu
+                        style={styles.menu}
                         visible={visible}
                         onDismiss={closeMenu}
                         anchor={<Button onPress={openMenu}>Pick your {dropdownTitle}</Button>}
@@ -41,10 +45,13 @@ const Dropdown = ({ dropdownTitle, inputArray, onPressItem, selection, appbtnTit
 
 
 const styles = StyleSheet.create({
-    dropdown: {
+    container: {
         paddingTop: 50,
         flexDirection: 'row',
         justifyContent: 'center',
+    },
+    menu: {
+        marginTop: 150
     }
 })
 
