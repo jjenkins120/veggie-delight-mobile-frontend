@@ -10,7 +10,7 @@ const InterestedInGenderSignupScreen = () => {
     // const [checked, setChecked] = useState(false)
     const { addInterestedInGender } = useContext(EntryContext)
 
-    const genderArray = ['Men', 'Women', 'Trans', 'Non-Binary']
+    const genderArray = ['Male', 'Female', 'Trans Man', 'Trans Woman', 'Non-Binary']
     //need to define logic that will added with checked state equally true to compile their titles to an array and sent to the context to be stored in state
 
     return (
