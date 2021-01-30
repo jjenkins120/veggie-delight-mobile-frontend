@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 import Form from '../components/Form'
 import FormView from '../components/FormView'
 import { CheckBox } from 'react-native-elements';
-import CheckboxList from '../components/CheckboxList'
+import CheckBoxList from '../components/CheckBoxList'
 import { Context as EntryContext} from '../context/EntryContext'
 
 const InterestedInGenderSignupScreen = () => {
@@ -14,7 +14,7 @@ const InterestedInGenderSignupScreen = () => {
     //need to define logic that will added with checked state equally true to compile their titles to an array and sent to the context to be stored in state
 
     return (
-        <CheckboxList
+        <CheckBoxList
             title='continue'
             inputArray={genderArray}
             onPress={addInterestedInGender}
